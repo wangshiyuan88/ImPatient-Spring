@@ -1,0 +1,64 @@
+package edu.wangshiyuan.impatient.model;
+
+import java.io.Serializable;
+
+public class CheckIn implements Serializable, Comparable<CheckIn>{
+	
+	private static final long serialVersionUID = 1L;
+	String firstName;
+	String lastName;
+	String sex;
+	String userID;
+	String appointmentID;
+	int checkInTime;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getSex() {
+		return sex;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public String getUserID() {
+		return userID;
+	}
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+	public String getAppointmentID() {
+		return appointmentID;
+	}
+	public void setAppointmentID(String appointmentID) {
+		this.appointmentID = appointmentID;
+	}
+	public int getCheckInTime() {
+		return checkInTime;
+	}
+	public void setCheckInTime(int checkInTime) {
+		this.checkInTime = checkInTime;
+	}
+
+	@Override
+	public boolean equals(Object other){
+		return this.getUserID().equals(((CheckIn) other).getUserID());
+	}
+
+	@Override
+	public int compareTo(CheckIn other) {
+		return this.getCheckInTime()-other.getCheckInTime();
+	}
+	
+	
+
+}
