@@ -325,7 +325,7 @@ public class PatientController {
 	}
 	
 	@RequestMapping(value = "/admin/deletecheckins/{id}", method = RequestMethod.POST)
-	public @ResponseBody String deleteCheckin(@PathVariable("id") String checkInID) {
+	public @ResponseBody List<CheckIn> deleteCheckin(@PathVariable("id") String checkInID) {
 		logger.info("Delete Check In");
 		final CheckIn checkIn = getCheckInByObjectId(checkInID);
 		if(checkIn!=null){
@@ -357,8 +357,7 @@ public class PatientController {
 				
 			});
 		}
-		logger.info(new Gson().toJson(patientQ, List.class));
-		return new Gson().toJson(patientQ, List.class);
+		return patientQ;
 	}
 
 	
